@@ -6,7 +6,7 @@ class NumArray {
         pr = new int[nums.length+1];
         pr[0] = 0;
         for(int i=0;i<nums.length;i++) pr[i+1] = pr[i]+nums[i];
-        System.out.println(Arrays.toString(pr));
+    //    System.out.println(Arrays.toString(pr));
     }
     
     public int sumRange(int left, int right) {
