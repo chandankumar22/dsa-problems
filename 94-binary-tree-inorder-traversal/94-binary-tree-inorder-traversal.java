@@ -13,16 +13,23 @@
  *     }
  * }
  */
+
+//VIA LOOP
 class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
-        return solve(root,new ArrayList<Integer>());
-    }
-    
-    public List<Integer> solve(TreeNode root, List<Integer> ans){
-        if(root==null) return ans;
-        solve(root.left,ans);
-        ans.add(root.val);
-        solve(root.right,ans);
+        List<Integer> ans = new ArrayList<Integer>();
+        Stack<TreeNode> stack = new Stack<>(); 
+        stack.push(root);
+        while(!stack.isEmpty()){
+            TreeNode node = stack.peek();
+            if(node==null){
+                stack.pop();
+                if(stack.isEmpty()) break;
+                TreeNode top = stack.pop();
+                ans.add(top.val);
+                stack.push(top.right);
+            }else stack.push(node.left);
+        }
         return ans;
     }
 }
