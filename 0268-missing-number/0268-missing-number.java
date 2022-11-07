@@ -3,12 +3,8 @@ class Solution {
         
         int i = 0;
         while(i < arr.length){
-            if(arr[i] == arr.length) swap(i++, arr.length-1, arr);
-            else if(arr[i] != i){
-                if(i == arr.length-1 && arr[i] == arr.length) continue;
-              swap(i, arr[i], arr);  
-            } 
-            else i++;                 
+            if(arr[i] == arr.length || arr[i] == i) i++;  
+            else swap(i, arr[i], arr);        
         }
         
         for(i = 0; i<arr.length; i++){
